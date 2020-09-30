@@ -42,3 +42,17 @@ active area.
 Dataset at https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json.
 
 [Wireframes](wireframes/wireframe-bar-chart.png) are provided.
+
+
+## Credits
+
+### Content
+
+Written be me.  Dataset provided at https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json
+
+### Acknowledgements
+
+Christian Paul, accessed on 30 September 2020.
+
+freeCodeCamp
+
