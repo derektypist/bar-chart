@@ -158,6 +158,7 @@
       var quarter;
       var temp = item[0].substring(5, 7);
 
+    // Determine what quarter should be
       if (temp === '01') {
         quarter = 'Q1';
       } else if (temp === '04') {
@@ -175,6 +176,7 @@
       return new Date(item[0]);
     });
 
+    // Set Up Axes
     var xMax = new Date(d3.max(yearsDate));
     xMax.setMonth(xMax.getMonth() + 3);
     var xScale = d3
@@ -214,6 +216,7 @@
       .attr('id', 'y-axis')
       .attr('transform', 'translate(60, 0)');
 
+    // Plot Bar Chart
     d3.select('svg')
       .selectAll('rect')
       .data(scaledGDP)
