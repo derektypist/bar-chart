@@ -133,6 +133,32 @@
                 // Return Year and Quarter
                 return item[0].substring(0, 4) + ' ' + quarter;
             });
+
+            let yearsDate = data.data.map(function(item) {
+                return new Date(item[0]);
+            });
+
+            // Set Up xMax, xScale and xAxis
+            let xMax = new Date(d3.max(yearsDate));
+            xMax.setMonth(xMax.getMonth() + 3);
+            let xScale = d3
+                .scaleTime()
+                .domain([d3.min(yearsDate), xMax])
+                .range([0, width]);
+
+            let xAxis = d3.axisBottom().scale(xScale);
+
+            svgContainer
+                .append('g')
+                .call(xAxis)
+                .attr('id', 'x-axis')
+                .attr('transform', 'translate(60, 400)');
+
+            // Get GDP Data
+            let GDP = data.data.map(function(item) {
+                return item[1];
+            });
+            
         }
     );
     </script>
