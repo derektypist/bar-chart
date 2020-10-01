@@ -62,6 +62,10 @@
         fill: none;
     }
 
+    .info {
+        font-size: 0.8em;
+    }
+
     </style>
     <!-- Load Scripts -->
     <script src="https://d3js.org/d3.v6.min.js"></script>
@@ -84,6 +88,13 @@
         .append('article')
         .attr('class', 'overlay')
         .style('opacity', 0);
+
+    // Set Up SVG Container
+    let svgContainer = d3
+        .select('.visHolder')
+        .append('svg')
+        .attr('width', width + 100)
+        .height('height', height + 60);
 
     
     </script>
