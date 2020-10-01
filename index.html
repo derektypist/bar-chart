@@ -138,8 +138,8 @@
 
     // Use JSON Data
     d3.json(
-        'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json',
-        function (e, data) {
+        'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json')
+        .then(function (e, data) {
             svgContainer
                 .append('text')
                 .attr('transform', 'rotate(-90)')
