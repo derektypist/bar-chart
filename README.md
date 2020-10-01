@@ -43,6 +43,13 @@ Dataset at https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/m
 
 [Wireframes](wireframes/wireframe-bar-chart.png) are provided.
 
+## Features
+
+A bar chart with tooltip.  If there was more time, have later dates.
+
+## Technologies
+
+This project uses HTML5, CSS3, JavaScript and D3.  Other technologies include Google Fonts.
 
 ## Credits
 
