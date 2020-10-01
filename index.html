@@ -107,7 +107,7 @@
             <div class="visHolder"></div>
         </div> 
     </div>
-    <!-- Load Scripts -->
+    <!-- Load Script -->
     
     <script>
     // Initialise variables
@@ -139,7 +139,7 @@
     // Use JSON Data
     d3.json(
         'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json',
-        function(e, data) {
+        function (e, data) {
             svgContainer
                 .append('text')
                 .attr('transform', 'rotate(-90)')
@@ -174,7 +174,7 @@
                 return item[0].substring(0, 4) + ' ' + quarter;
             });
 
-            let yearsDate = data.data.map(function(item) {
+            let yearsDate = data.data.map(function (item) {
                 return new Date(item[0]);
             });
 
@@ -195,7 +195,7 @@
                 .attr('transform', 'translate(60, 400)');
 
             // Get GDP Data and Set Up yAxis
-            let GDP = data.data.map(function(item) {
+            let GDP = data.data.map(function (item) {
                 return item[1];
             });
 
@@ -258,6 +258,10 @@
                         .style('top', height - 100 + 'px')
                         .style('transform', 'translateX(60px)');
                 })
+                .on('mouseout', function () {
+                    tooltip.transition().duration(200).style('opacity', 0);
+                    overlay.transition().duration(200).style('opacity', 0);
+                });
         }
     );
     </script>
