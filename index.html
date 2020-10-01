@@ -38,7 +38,28 @@
         height: 50px;
         padding: 2px;
         font-size: 12px;
+        background-color: lightgreen;
+        box-shadow: 1px 1px 10px;
+        border-radius: 2px;
+        pointer-events: none;
+    }
 
+    .overlay {
+        position: absolute;
+        background-color: #ffffff;
+        pointer-events: none;
+    }
+
+    #x-axis path {
+        stroke: black;
+        stroke-width: 1px;
+        fill: none;
+    }
+
+    #y-axis path {
+        stroke: black;
+        stroke-width: 1px;
+        fill: none;
     }
 
     </style>
@@ -60,6 +81,6 @@
     </header>
 
     <!-- Set Up Chart -->
-    <section class="visHolder"></section>
+    <section class="container-fluid visHolder"></section>
 </body>
 </html>
