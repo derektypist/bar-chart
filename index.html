@@ -96,7 +96,8 @@
     }
 
     </style>
-    
+    <!-- Load Script -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
     <div class="main">
@@ -107,7 +108,7 @@
         </div> 
     </div>
     <!-- Load Scripts -->
-    <script src="https://d3js.org/d3.v6.js"></script>
+    
     <script>
     // Initialise variables
     let width = 800;
@@ -254,6 +255,8 @@
                         .html(years[i] + '<br>' + '$' + GDP[i].toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') + ' Billion')
                         .attr('data-date', data.data[i][0])
                         .style('left', i * barWidth + 30 + 'px')
+                        .style('top', height - 100 + 'px')
+                        .style('transform', 'translateX(60px)');
                 })
         }
     );
