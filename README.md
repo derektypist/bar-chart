@@ -43,6 +43,10 @@ Dataset at https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/m
 
 [Wireframes](wireframes/wireframe-bar-chart.png) are provided.
 
+Year is on the x-axis and GDP is on the y-axis.
+
+Data from 1947 to 2015.
+
 ## Features
 
 A bar chart with tooltip.  If there was more time, have later dates.
@@ -50,6 +54,14 @@ A bar chart with tooltip.  If there was more time, have later dates.
 ## Technologies
 
 This project uses HTML5, CSS3, JavaScript and D3.  Other technologies include Google Fonts.
+
+## Testing
+
+Make sure all the user stories have been met.
+
+## Deployment
+
+Deployed on [GitHub Pages](https://derektypist.github.io/bar-chart) at the master branch.
 
 ## Credits
 
@@ -59,7 +71,7 @@ Written be me.  Dataset provided at https://raw.githubusercontent.com/freeCodeCa
 
 ### Acknowledgements
 
-Christian Paul, accessed on 30 September 2020.
+Christian Paul, accessed from 30 September 2020 to 1 October 2020.
 
 freeCodeCamp
 
