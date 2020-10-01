@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D3 Bar Chart</title>
     <!-- Load Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <style>
     /* Universal Styles */
@@ -13,6 +12,17 @@
         font-family: "Roboto", Arial, Verdana, sans-serif;
         margin: 0;
         padding: 0;
+    }
+
+    /* Main */
+    .main {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #708090;
+        background-size: 64 px 128px;
     }
 
     /* Title */
@@ -67,6 +77,16 @@
     }
 
     </style>
+    
+</head>
+<body>
+    <main class="main">
+        <!-- Set Up Container for Title and Chart -->
+        <div class="container">
+            <div id="title">United States GDP</div>
+            <div class="visHolder"></div>
+        </div> 
+    </main>
     <!-- Load Scripts -->
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script>
@@ -77,15 +97,15 @@
     
     // Set Up Tooltip
     let tooltip = d3
-        .select(".visHolder")
-        .append('article')
+        .select('.visHolder')
+        .append('div')
         .attr('id', 'tooltip')
         .style('opacity', 0);
 
     // Set Up Overlay
     let overlay = d3
         .select('.visHolder')
-        .append('article')
+        .append('div')
         .attr('class', 'overlay')
         .style('opacity', 0);
 
@@ -154,7 +174,7 @@
                 .attr('id', 'x-axis')
                 .attr('transform', 'translate(60, 400)');
 
-            // Get GDP Data
+            // Get GDP Data and Set Up yAxis
             let GDP = data.data.map(function(item) {
                 return item[1];
             });
@@ -165,17 +185,54 @@
             scaledGDP = GDP.map(function(item) {
                 return linearScale(item);
             });
+            let yAxisScale = d3.scaleLinear().domain([0, gdpMax]).range([height, 0]);
+            let yAxis = d3.axisLeft(yAxisScale);
+            svgContainer
+                .append('g')
+                .call(yAxis)
+                .attr('id', 'y-axis')
+                .attr('transform', 'translate(60, 0)');
+            
+            // Plot Bar Chart
+            d3.select('svg')
+                .selectAll('rect')
+                .data(scaledGDP)
+                .enter()
+                .append('rect')
+                .attr('data-date', function (d,i) { 
+                    return data.data[i][0];
+                    })
+                .attr('data-gdp', function (d, i) {
+                    return data.data[i][1];
+                })
+                .attr('class', 'bar')
+                .attr('x', function (d, i) {
+                    return xScale(yearsDate[i]);
+                })
+                .attr('y', function (d, i) {
+                    return height - d;
+                })
+                .attr('width', barWidth)
+                .attr('height', function (d) {
+                    return d;
+                })
+                .style('fill', 'green')
+                .attr('transform', 'translate(60, 0)')
+                .on('mouseover', function (d, i) {
+                    overlay
+                        .transition()
+                        .duration(0)
+                        .style('height', d + 'px')
+                        .style('width', barWidth + 'px')
+                        .style('opacity', 0.9)
+                        .style('left', i * barWidth + 0 + 'px')
+                        .style('top', height - d + 'px')
+                        .style('transform', 'translateX(60px)');                       
+                })
+
+            tooltip.transition().duration(200).style('opacity', 0.9);
         }
     );
     </script>
-</head>
-<body>
-    <!-- Set Up Title -->
-    <header class="text-center container-fluid" id="title">
-        <h1>United States GDP</h1>
-    </header>
-
-    <!-- Set Up Chart -->
-    <section class="container-fluid visHolder"></section>
 </body>
 </html>
