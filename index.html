@@ -158,7 +158,10 @@
             let GDP = data.data.map(function(item) {
                 return item[1];
             });
-            
+
+            let scaledGDP = [];
+            let gdpMax = d3.max(GDP);
+            let linearScale = d3.scaleLinear().domain([0, gdpMax]).range([0, height]);
         }
     );
     </script>
