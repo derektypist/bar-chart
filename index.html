@@ -14,6 +14,33 @@
         margin: 0;
         padding: 0;
     }
+
+    /* Title */
+    #title {
+        background-color: lightblue;
+        color: purple;
+    }
+
+    /* Chart Holder */
+    .visHolder {
+        position: absolute;
+        top: 6em;
+    }
+
+    /* Chart */
+    #tooltip {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        text-align: center;
+        width: 150px;
+        height: 50px;
+        padding: 2px;
+        font-size: 12px;
+
+    }
+
     </style>
     <!-- Load Scripts -->
     <script src="https://d3js.org/d3.v6.min.js"></script>
@@ -23,6 +50,7 @@
     let height = 400;
     let barWidth = width/275;
     
+
     </script>
 </head>
 <body>
@@ -32,6 +60,6 @@
     </header>
 
     <!-- Set Up Chart -->
-    <section class="container-fluid visHolder"></section>
+    <section class="visHolder"></section>
 </body>
 </html>
