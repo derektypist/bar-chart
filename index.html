@@ -71,7 +71,21 @@
     let height = 400;
     let barWidth = width/275;
     
+    // Set Up Tooltip
+    let tooltip = d3
+        .select(".visHolder")
+        .append('article')
+        .attr('id', 'tooltip')
+        .style('opacity', 0);
 
+    // Set Up Overlay
+    let overlay = d3
+        .select('.visHolder')
+        .append('article')
+        .attr('class', 'overlay')
+        .style('opacity', 0);
+
+    
     </script>
 </head>
 <body>
