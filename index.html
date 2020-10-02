@@ -43,11 +43,12 @@
         fill: green;
     }
 
-    bar:hover {
+    .bar:hover {
         fill: blue;
     }
 
-    g {
+    g{
+        font-family: "Roboto", Arial, Verdana, sans-serif;
         color: blue;
     }
 
@@ -125,6 +126,7 @@
                     .style('visibility', 'hidden')
                     .style('width', 'auto')
                     .style('height', 'auto');
+    
 
         svg.selectAll('rect')
             .data(values)
