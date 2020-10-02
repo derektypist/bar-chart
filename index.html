@@ -18,30 +18,19 @@
         height: 100%;
     }
 
+    svg {
+        background-color: white;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        padding: 10px;
+    }
 
    /* Title */
    #title {
-       font-size: 50px;
-       fill: lightblue;
+       font-size: 30px;
+       fill: #17252A;
    }
 
-    @media (min-width: 1000px) {
-        .main .container {
-            box-shadow: 2px 2px 20px;
-        }
-    }
-
-    /* Main, Container and Title */
-    .main .container #title {
-        text-align: center;
-        font-size: 2.5em;
-    }
-
-    /* Main, Container and visHolder */
-    .main .container .visHolder {
-        position: absolute;
-        top: 6em;
-    }
 
     /* Chart */
     #tooltip {
@@ -88,20 +77,24 @@
 </head>
 <body>
     <!-- Set Up SVG -->
-    <svg>
-        <text id='title' x='350' y='50'>United States GDP</text>
+    <svg id='canvas'>
+        <text id='title' x='350' y='30'>United States GDP</text>
     </svg>
     <!-- Load Script -->
     
     <script>
-    // Initialise variables
+    // Initialise Variables
     let url = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json';
     let req = new XMLHttpRequest();
     let data;
     let values = [];
+    let heightScale;
+    let xScale;
+    let xAxisScale;
+    let yAxisScale;
     let width = 800;
-    let height = 400;
-    let barWidth = width/275;
+    let height = 600;
+    let padding = 40;
     
     // Set Up Tooltip
     let tooltip = d3
