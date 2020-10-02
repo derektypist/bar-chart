@@ -49,9 +49,9 @@
     }
 
     #tooltip {
-        margin-top: 10px;
-        color: lightblue;
-        font-size: 28px;
+       margin-top: 10px;
+       color: lightblue;
+       font-size: 28px;
     }
 
     /* Title */
@@ -128,7 +128,7 @@
                     .style('visibility', 'hidden')
                     .style('width', 'auto')
                     .style('height', 'auto');
-    
+                
 
         svg.selectAll('rect')
             .data(values)
@@ -151,7 +151,7 @@
             .attr('y', (item) => {
                 return (height - padding) - heightScale(item[1]);
             })
-            .on('mouseover', (item) => {
+            .on('mouseover', (e, item) => {
                 tooltip.transition().style('visibility', 'visible');
                 tooltip.text(item[0]);
                 document.querySelector('#tooltip').setAttribute('data-date', item[0]);
