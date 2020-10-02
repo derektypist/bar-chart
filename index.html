@@ -30,11 +30,7 @@
         padding: 10px;
     }
 
-   /* Title */
-   #title {
-       font-size: 30px;
-       fill: purple;
-   }
+   
 
     /* Chart */
     .bar {
@@ -49,13 +45,19 @@
 
     g{
         font-family: "Roboto", Arial, Verdana, sans-serif;
-        color: blue;
+        color: purple;
     }
 
     #tooltip {
         margin-top: 10px;
         color: lightblue;
         font-size: 28px;
+    }
+
+    /* Title */
+    #title {
+       font-size: 30px;
+       fill: purple;
     }
 
     </style>
@@ -157,6 +159,7 @@
             .on('mouseout', (item) => {
                 tooltip.transition().style('visibility', 'hidden');
             });
+            
 
     };
 
