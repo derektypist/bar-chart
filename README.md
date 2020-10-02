@@ -75,5 +75,7 @@ Christian Paul, accessed from 30 September 2020 to 1 October 2020.
 
 [YouTube](https://www.youtube.com/watch?v=w5vxVj8g3cs) video provided by Ganesh H.
 
+Went to [Notion](https://www.notion.so/Visualize-Data-with-a-Bar-Chart-9e5ef4f33375409580a80f659cd8aa93).  Accessed on 2 October 2020.
+
 freeCodeCamp
 
