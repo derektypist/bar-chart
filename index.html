@@ -8,8 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <style>
     /* Universal Styles */
-    body {
+    * {
         font-family: "Roboto", Arial, Verdana, sans-serif;
+    }
+
+
+    html {
+        height: 100%;
+    }
+
+    body {
         background-color: seagreen;
         display: flex;
         flex-direction: column;
@@ -19,7 +27,7 @@
     }
 
     svg {
-        background-color: white;
+        background-color: lightblue;
         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
         border-radius: 5px;
         padding: 10px;
@@ -28,47 +36,28 @@
    /* Title */
    #title {
        font-size: 30px;
-       fill: #17252A;
+       fill: green;
    }
 
-
     /* Chart */
+    .bar {
+        background-color: green;
+        border-color: green;
+        fill: green;
+    }
+
+    bar:hover {
+        fill: blue;
+    }
+
+    g {
+        color: blue;
+    }
+
     #tooltip {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        text-align: center;
-        width: 150px;
-        height: 50px;
-        padding: 2px;
-        font-size: 12px;
-        background-color: lightgreen;
-        box-shadow: 1px 1px 10px;
-        border-radius: 2px;
-        pointer-events: none;
-    }
-
-    .overlay {
-        position: absolute;
-        background-color: #ffffff;
-        pointer-events: none;
-    }
-
-    #x-axis path {
-        stroke: black;
-        stroke-width: 1px;
-        fill: none;
-    }
-
-    #y-axis path {
-        stroke: black;
-        stroke-width: 1px;
-        fill: none;
-    }
-
-    .info {
-        font-size: 0.8em;
+        margin-top: 10px;
+        color: lightblue;
+        font-size: 28px;
     }
 
     </style>
@@ -78,11 +67,11 @@
 <body>
     <!-- Set Up SVG -->
     <svg id='canvas'>
-        <text id='title' x='350' y='30'>United States GDP</text>
+        <text id='title' x='350' y='30'>USA GDP</text>
     </svg>
     <!-- Load Script -->
     
-    <script>
+    <script defer>
     // Initialise Variables
     let url = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json';
     let req = new XMLHttpRequest();
@@ -97,7 +86,7 @@
     let padding = 40;
     let svg = d3.select('svg');
 
-    // Set Up Draw Canvas
+    // Draw Canvas
     let drawCanvas = () => {
         svg.attr('width', width);
         svg.attr('height', height);
@@ -129,6 +118,10 @@
                     })])
                     .range([height-padding, padding]);
     };
+
+    // Draw Bars
+
+
     
     // Set Up Tooltip
     let tooltip = d3
@@ -288,6 +281,8 @@
       data = JSON.parse(req.responseText);
       values = data.data;
       console.log(values);
+      drawCanvas();
+      generateScales();
   };
   req.send();
     </script>
