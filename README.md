@@ -1,6 +1,7 @@
 # Bar Chart
 
-The aim of the project is to visualize data with a Bar Chart.
+The aim of the project is to visualize data with a Bar Chart.  Making use of JSON Data.
+Example includes the United States GDP.
 
 Functionality similar to https://codepen.io/freeCodeCamp/full/GrZVaM.
 
@@ -57,7 +58,8 @@ This project uses HTML5, CSS3, JavaScript and D3.  Other technologies include Go
 
 ## Testing
 
-Make sure all the user stories have been met.
+Make sure all the user stories have been met.  If some or all of the tests have failed, go back and edit code
+until all tests have passed.
 
 ## Deployment
 
@@ -69,6 +71,10 @@ Deployed on [GitHub Pages](https://derektypist.github.io/bar-chart) at the maste
 
 Written be me.  Dataset provided at https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json
 
+Went to w3schools.com website for information on SVG.
+
+Did a Google Search on freecodecamp bar chart.
+
 ### Acknowledgements
 
 Christian Paul, accessed from 30 September 2020 to 1 October 2020.
@@ -76,6 +82,8 @@ Christian Paul, accessed from 30 September 2020 to 1 October 2020.
 [YouTube](https://www.youtube.com/watch?v=w5vxVj8g3cs) video provided by Ganesh H.
 
 Went to [Notion](https://www.notion.so/Visualize-Data-with-a-Bar-Chart-9e5ef4f33375409580a80f659cd8aa93).  Accessed on 2 October 2020.
+
+Also to Batou Alin-Constanin on help with mouseover issues.
 
 freeCodeCamp
 
