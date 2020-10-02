@@ -79,13 +79,13 @@
         pointer-events: none;
     }
 
-    #x-axis .tick {
+    #x-axis path {
         stroke: black;
         stroke-width: 1px;
         fill: none;
     }
 
-    #y-axis .tick {
+    #y-axis path {
         stroke: black;
         stroke-width: 1px;
         fill: none;
@@ -111,6 +111,8 @@
     
     <script>
     // Initialise variables
+    let url = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json';
+    let req = new XMLHttpRequest();
     let width = 800;
     let height = 400;
     let barWidth = width/275;
@@ -136,10 +138,8 @@
         .attr('width', width + 100)
         .attr('height', height + 60);
 
-    // Use JSON Data
-    d3.json(
-        'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json')
-       .then(function (e, data) {
+   
+    
     svgContainer
       .append('text')
       .attr('transform', 'rotate(-90)')
@@ -154,9 +154,9 @@
       .text('More Information: http://www.bea.gov/national/pdf/nipaguid.pdf')
       .attr('class', 'info');
 
-    var years = data.data.map(function (item) {
-      var quarter;
-      var temp = item[0].substring(5, 7);
+    let years = data.data.map(function (item) {
+      let quarter;
+      let temp = item[0].substring(5, 7);
 
     // Determine what quarter should be
       if (temp === '01') {
@@ -172,19 +172,19 @@
       return item[0].substring(0, 4) + ' ' + quarter;
     });
 
-    var yearsDate = data.data.map(function (item) {
+    let yearsDate = data.data.map(function (item) {
       return new Date(item[0]);
     });
 
     // Set Up Axes
-    var xMax = new Date(d3.max(yearsDate));
+    let xMax = new Date(d3.max(yearsDate));
     xMax.setMonth(xMax.getMonth() + 3);
-    var xScale = d3
+    let xScale = d3
       .scaleTime()
       .domain([d3.min(yearsDate), xMax])
       .range([0, width]);
 
-    var xAxis = d3.axisBottom().scale(xScale);
+    let xAxis = d3.axisBottom().scale(xScale);
 
     svgContainer
       .append('g')
@@ -192,23 +192,23 @@
       .attr('id', 'x-axis')
       .attr('transform', 'translate(60, 400)');
 
-    var GDP = data.data.map(function (item) {
+    let GDP = data.data.map(function (item) {
       return item[1];
     });
 
-    var scaledGDP = [];
+    let scaledGDP = [];
 
-    var gdpMax = d3.max(GDP);
+    let gdpMax = d3.max(GDP);
 
-    var linearScale = d3.scaleLinear().domain([0, gdpMax]).range([0, height]);
+    let linearScale = d3.scaleLinear().domain([0, gdpMax]).range([0, height]);
 
     scaledGDP = GDP.map(function (item) {
       return linearScale(item);
     });
 
-    var yAxisScale = d3.scaleLinear().domain([0, gdpMax]).range([height, 0]);
+    let yAxisScale = d3.scaleLinear().domain([0, gdpMax]).range([height, 0]);
 
-    var yAxis = d3.axisLeft(yAxisScale);
+    let yAxis = d3.axisLeft(yAxisScale);
 
     svgContainer
       .append('g')
@@ -269,7 +269,7 @@
         tooltip.transition().duration(200).style('opacity', 0);
         overlay.transition().duration(200).style('opacity', 0);
       });
-  });
+  
     </script>
 </body>
 </html>
