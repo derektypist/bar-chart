@@ -113,6 +113,8 @@
     // Initialise variables
     let url = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json';
     let req = new XMLHttpRequest();
+    let data;
+    let values = [];
     let width = 800;
     let height = 400;
     let barWidth = width/275;
@@ -270,6 +272,13 @@
         overlay.transition().duration(200).style('opacity', 0);
       });
   
+  req.open('GET', url, true);
+  req.onload = () => {
+      data = JSON.parse(req.responseText);
+      values = data.data;
+      console.log(values);
+  };
+  req.send();
     </script>
 </body>
 </html>
